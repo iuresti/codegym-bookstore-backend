@@ -23,10 +23,18 @@ import java.time.LocalDateTime;
 public class Book {
     @Id
     private String id;
-    private String isbn;
     private String title;
     private String author;
-    private BigDecimal baseRate;
+    private String genre;
+    private BigDecimal price;
+    private int stock;
+    private String description;
+    @Column(name = "image_url")
+    private String imageUrl;
+
+    @Column(name = "publish_date")
+    private String publishDate;
+
     @CreatedDate
     @Column(name = "creation_date")
     private LocalDateTime creationDate;

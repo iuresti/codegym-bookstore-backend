@@ -4,33 +4,35 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "reviews")
+@Table(name = "orders")
 @Data
-public class Review {
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class BookOrder {
+
     @Id
     private String id;
 
-    @Column(name = "book_id")
-    private String bookId;
+    private OrderStatus status;
 
-    @Column(name = "user_id")
-    private String userId;
-
-    private String review;
+    private String clientId;
 
     @CreatedDate
     @Column(name = "creation_date")
-    private LocalDate creationDate;
+    private LocalDateTime creationDate;
 
     @LastModifiedDate
     @Column(name = "last_update_date")
-    private LocalDate lastUpdateDate;
-
+    private LocalDateTime lastUpdateDate;
 }

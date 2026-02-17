@@ -4,9 +4,10 @@ import codegym.mod5.bookstore.model.Book;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.Query;
+import jakarta.persistence.TypedQuery;
 import org.springframework.stereotype.Repository;
 
-import java.util.UUID;
+import java.util.List;
 
 @Repository
 public class BookRepository {
@@ -15,9 +16,6 @@ public class BookRepository {
     private EntityManager entityManager;
 
     public Book save(Book book) {
-        if (book.getId() == null) {
-            book.setId(UUID.randomUUID().toString());
-        }
 
         entityManager.persist(book);
 
@@ -36,5 +34,16 @@ public class BookRepository {
         return (Book) query.getSingleResult();
     }
 
+    public List<Book> findAll() {
+        TypedQuery<Book> query = entityManager.createQuery("select b from Book b", Book.class);
 
+        return query.getResultList();
+    }
+
+
+    public int deleteById(String id) {
+        entityManager.createQuery("delete from Book b where b.id = :id")
+                .setParameter("id", id)
+                .executeUpdate();
+    }
 }
