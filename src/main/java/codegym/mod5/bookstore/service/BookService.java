@@ -57,7 +57,7 @@ public class BookService {
     }
 
     public BookDto getById(String id){
-        Book bookEntity = bookRepository.findById(id);
+        Book bookEntity = bookRepository.findById(id).orElseThrow();
         BookDto bookDto = new BookDto();
 
         BeanUtils.copyProperties(bookEntity, bookDto);

@@ -22,7 +22,7 @@ public class BookOrderDto {
 
     private String userName;
 
-    private List<OrderItem> items;
+    private List<OrderItemDto> items;
 
     private BigDecimal total;
 

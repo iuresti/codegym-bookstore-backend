@@ -1,9 +1,6 @@
 package codegym.mod5.bookstore.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -24,6 +21,7 @@ public class BookOrder {
     @Id
     private String id;
 
+    @Enumerated(EnumType.STRING)
     private OrderStatus status;
 
     private String clientId;

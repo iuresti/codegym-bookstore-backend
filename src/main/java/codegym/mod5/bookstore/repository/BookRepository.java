@@ -8,6 +8,7 @@ import jakarta.persistence.TypedQuery;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class BookRepository {
@@ -22,16 +23,17 @@ public class BookRepository {
         return book;
     }
 
-    public void delete(Book book) {
-        entityManager.remove(book);
-    }
-
-    public Book findById(String id) {
-        Query query = entityManager.createQuery("select b from Book b where b.id = :id");
+    public Optional<Book> findById(String id) {
+        TypedQuery<Book> query = entityManager.createQuery("select b from Book b where b.id = :id", Book.class);
 
         query.setParameter("id", id);
 
-        return (Book) query.getSingleResult();
+        List<Book> resultList = query.getResultList();
+        if(resultList.isEmpty()) {
+            return Optional.empty();
+        }
+
+        return Optional.ofNullable(resultList.getFirst());
     }
 
     public List<Book> findAll() {
@@ -42,7 +44,7 @@ public class BookRepository {
 
 
     public int deleteById(String id) {
-        entityManager.createQuery("delete from Book b where b.id = :id")
+        return entityManager.createQuery("delete from Book b where b.id = :id")
                 .setParameter("id", id)
                 .executeUpdate();
     }
