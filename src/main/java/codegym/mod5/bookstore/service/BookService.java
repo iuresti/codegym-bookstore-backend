@@ -23,7 +23,7 @@ public class BookService {
     private final BookRepository bookRepository;
 
     @Transactional
-    public void save(BookDto bookDto) {
+    public BookDto save(BookDto bookDto) {
 
         Book bookEntity = new Book();
 
@@ -34,6 +34,10 @@ public class BookService {
         }
 
         bookRepository.save(bookEntity);
+
+        bookDto.setId(bookEntity.getId());
+
+        return bookDto;
     }
 
     public List<BookDto> findAll() {
