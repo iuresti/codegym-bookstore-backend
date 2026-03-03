@@ -40,6 +40,18 @@ public class BookService {
         return bookDto;
     }
 
+    @Transactional
+    public BookDto update(BookDto bookDto) {
+
+        Book bookEntity = bookRepository.findById(bookDto.getId()).orElseThrow();
+
+        BeanUtils.copyProperties(bookDto, bookEntity);
+
+        bookRepository.save(bookEntity);
+
+        return bookDto;
+    }
+
     public List<BookDto> findAll() {
         return bookRepository.findAll().stream()
                 .map(entity -> {
@@ -54,6 +66,7 @@ public class BookService {
                 .collect(Collectors.toList());
     }
 
+    @Transactional
     public void delete(String id) {
         int removedCount = bookRepository.deleteById(id);
 

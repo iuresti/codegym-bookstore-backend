@@ -14,6 +14,19 @@
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring.version>6.2.3</spring.version>
+        <spring-data-jpa.version>4.0.2</spring-data-jpa.version>
+        <lombok.version>1.18.32</lombok.version>
+        <jakarta.servlet-api.version>6.0.0</jakarta.servlet-api.version>
+        <hibernate-core.version>6.5.2.Final</hibernate-core.version>
+        <postgresql.version>42.7.10</postgresql.version>
+        <jackson-databind.version>2.20.1</jackson-databind.version>
+        <logback-classic.version>1.5.32</logback-classic.version>
+        <slf4j-api.version>2.0.17</slf4j-api.version>
+        <junit-jupiter-api.version>5.10.2</junit-jupiter-api.version>
+        <junit-jupiter-engine.version>5.10.2</junit-jupiter-engine.version>
+        <junit-platform-launcher.version>1.10.2</junit-platform-launcher.version>
+        <assertj-core.version>3.27.3</assertj-core.version>
+        <mockito-core.version>5.18.0</mockito-core.version>
     </properties>
 
     <dependencyManagement>
@@ -42,20 +55,20 @@
         <dependency>
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-jpa</artifactId>
-            <version>4.0.2</version>
+            <version>${spring-data-jpa.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <scope>provided</scope>
-            <version>1.18.32</version>
+            <version>${lombok.version}</version>
         </dependency>
 
         <dependency>
             <groupId>jakarta.servlet</groupId>
             <artifactId>jakarta.servlet-api</artifactId>
-            <version>6.0.0</version>
+            <version>${jakarta.servlet-api.version}</version>
             <scope>provided</scope>
         </dependency>
 
@@ -63,26 +76,38 @@
         <dependency>
             <groupId>org.hibernate.orm</groupId>
             <artifactId>hibernate-core</artifactId>
-            <version>6.5.2.Final</version>
+            <version>${hibernate-core.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <version>42.7.10</version>
+            <version>${postgresql.version}</version>
         </dependency>
 
         <dependency>
-                <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-databind</artifactId>
-                <version>2.20.1</version>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson-databind.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback-classic.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j-api.version}</version>
         </dependency>
 
         <!-- JUnit Jupiter API -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
-            <version>5.10.2</version>
+            <version>${junit-jupiter-api.version}</version>
             <scope>test</scope>
         </dependency>
 
@@ -90,7 +115,7 @@
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
-            <version>5.10.2</version>
+            <version>${junit-jupiter-engine.version}</version>
             <scope>test</scope>
         </dependency>
 
@@ -98,7 +123,7 @@
         <dependency>
             <groupId>org.junit.platform</groupId>
             <artifactId>junit-platform-launcher</artifactId>
-            <version>1.10.2</version>
+            <version>${junit-platform-launcher.version}</version>
             <scope>test</scope>
         </dependency>
 
@@ -111,14 +136,14 @@
         <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
-            <version>3.27.3</version>
+            <version>${assertj-core.version}</version>
             <scope>test</scope>
         </dependency>
 
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
-            <version>5.18.0</version>
+            <version>${mockito-core.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

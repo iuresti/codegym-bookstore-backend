@@ -27,10 +27,8 @@ public class BookOrderRepository {
 
     public List<BooksByOrder> getItems(String orderId) {
 
-        entityManager.createQuery("select bo from BooksByOrder bo where bo.orderId = :orderId", BooksByOrder.class)
+        return entityManager.createQuery("select bo from BooksByOrder bo where bo.orderId = :orderId", BooksByOrder.class)
                 .setParameter("orderId", orderId).getResultList();
-
-        return null;
     }
 
     public Optional<BookOrder> findById(String id) {

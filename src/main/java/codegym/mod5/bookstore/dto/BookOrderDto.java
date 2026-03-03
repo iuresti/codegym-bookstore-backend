@@ -1,6 +1,7 @@
 package codegym.mod5.bookstore.dto;
 
 import codegym.mod5.bookstore.model.OrderStatus;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -28,8 +29,10 @@ public class BookOrderDto {
 
     private OrderStatus orderStatus;
 
+    @JsonFormat(pattern = "dd-MM-yyyy")
     private LocalDateTime orderDate;
 
+    @JsonFormat(pattern = "dd-MM-yyyy")
     private LocalDateTime completedDate;
 
 
