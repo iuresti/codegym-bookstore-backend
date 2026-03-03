@@ -29,14 +29,13 @@ public class BookOrderDto {
 
     private OrderStatus orderStatus;
 
-    @JsonFormat(pattern = "dd-MM-yyyy")
+    @JsonFormat(pattern = "dd-mm-yyyy")
     private LocalDateTime orderDate;
 
-    @JsonFormat(pattern = "dd-MM-yyyy")
+    @JsonFormat(pattern = "dd-mm-yyyy")
     private LocalDateTime completedDate;
 
-
-
+    @JsonFormat(pattern = "dd-mm-yyyy")
     private LocalDateTime orderStartDate;
 
 
